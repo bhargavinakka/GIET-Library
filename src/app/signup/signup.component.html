@@ -1,0 +1,73 @@
+<!-- <div class="bg-image">
+    <img src="https://mintbook.com/assetsNew/img/digital-2.png" alt="" class="image">
+    <div class="container1" data-aos="fade-up">
+      <img src="../../assets/ava.png" alt="" class="avatar">
+      <h1>Welcome</h1>
+      <input type="text" placeholder="User name" name="User name" required> 
+      <input type="text" placeholder="Email" name="Email" required> 
+      <input type="password" placeholder="Password" name="Password" required> 
+       <button routerLink="../home" class="btn">Signup</button>
+      <p>Have an account..<a routerLink="../login" style="padding-left: 10%;">Login</a></p>
+    </div>
+  </div>   -->
+  <app-nav></app-nav>
+  <div class="bg-image">
+     <img src="https://mintbook.com/assetsNew/img/digital-2.png" alt="" class="image">
+     <div class="container1" data-aos="fade-up">
+       <img src="../../assets/ava.png" alt="" class="avatar">
+       <h1>Welcome</h1>
+       <form [formGroup]="registrationsform" (ngSubmit)="Submit()">
+         <div class="container-details">
+           <input
+             class="form-control"
+             formControlName="Email"
+             type="text"
+             name="Email"
+             placeholder="Email"
+             [(ngModel)]="reg.Email"/>
+           <small
+           *ngIf="
+               registrationsform.controls['Email'].dirty &&
+               registrationsform.hasError('required','Email')
+               "
+               class="text-danger"
+               >Username contain atleast 4 characters
+             </small>
+             <input class="form-control" type="Username" style="margin-bottom: 10%;" placeholder="Username" name="Username" [(ngModel)]="reg.Username"/>
+             <small
+             *ngIf="
+                 registrationsform.controls['Username'].dirty &&
+                 registrationsform.hasError('required','Username')
+                 "
+                 class="text-danger"
+                 >Username contain atleast 4 characters
+               </small>
+ 
+             <input
+             class="form-control"
+             type="Password"
+             placeholder="Password"
+             name="Password"
+             [(ngModel)]="reg.Password"
+           />
+           <small
+           *ngIf="
+               registrationsform.controls['Password'].dirty &&
+               registrationsform.hasError('required','Password')
+               "
+               class="text-danger"
+               >Username contain atleast 4 characters
+             </small>
+           
+           <button routerLink="../home" class="btn">Signup</button>
+       <p> Have account! <a routerLink="../login" style="margin-left: 3%;">Login</a></p>
+         </div>
+       </form>
+             
+       <!-- <input type="text" placeholder="User name" name="User name" required> 
+       <input type="text" placeholder="email" name="email" required> 
+       <input type="password" placeholder="Enter Password" name="psw" required>  -->
+        <!-- <button routerLink="../home" class="btn">Signup</button>
+       <p>already have account <a routerLink="../login">Login</a></p> -->
+     </div>
+   </div>
